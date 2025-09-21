@@ -147,7 +147,14 @@ app_license = "mit"
 
 # Scheduled Tasks
 # ---------------
-
+# scheduler_events = {
+#     "cron":{
+#         "0 23 * * *":[
+#             "event.daily_event.daily"
+#         ]
+        
+#     }
+# }
 # scheduler_events = {
 # 	"all": [
 # 		"event.tasks.all"

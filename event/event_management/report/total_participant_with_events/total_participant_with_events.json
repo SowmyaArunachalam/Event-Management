@@ -1,0 +1,29 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2025-09-15 18:43:00.429852",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "json": "{\"filters\":[],\"fields\":[[\"event_name\",\"Participants\"],[\"_aggregate_column\",\"Participants\"]],\"order_by\":\"`tabParticipants`.`modified` desc\",\"page_length\":20,\"column_widths\":{\"event_name\":120,\"_aggregate_column\":200},\"group_by\":{\"group_by\":\"`tabParticipants`.`event_name`\",\"aggregate_function\":\"count\"}}",
+ "letterhead": null,
+ "modified": "2025-09-15 21:56:00.369417",
+ "modified_by": "Administrator",
+ "module": "Event Management",
+ "name": "Total participant with events",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Participants",
+ "report_name": "Total participant with events",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}

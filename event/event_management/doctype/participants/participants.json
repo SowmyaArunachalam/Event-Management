@@ -1,0 +1,147 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{parti_name}-{##}",
+ "creation": "2025-09-15 11:47:19.111009",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "parti_name",
+  "receiver_email",
+  "year",
+  "total_team_members",
+  "type",
+  "column_break_ftak",
+  "phone_number",
+  "college_name",
+  "event_name",
+  "date_time",
+  "section_break_tqgp",
+  "team_member_details",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "year",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Year",
+   "options": "I\nII\nIII\nIV",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ftak",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Phone Number",
+   "options": "Phone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "college_name",
+   "fieldtype": "Data",
+   "label": "College Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_tqgp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.type === \"Group\"",
+   "fieldname": "team_member_details",
+   "fieldtype": "Table",
+   "label": "Team Member Details",
+   "options": "Team Details"
+  },
+  {
+   "fieldname": "parti_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Participants",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "event_name",
+   "fieldtype": "Link",
+   "label": "Event",
+   "options": "Events_List",
+   "reqd": 1
+  },
+  {
+   "fieldname": "receiver_email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Email",
+   "options": "Email",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "event_name.datetime",
+   "fieldname": "date_time",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Date/Time",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_team_members",
+   "fieldtype": "Float",
+   "label": "Total Team members (including you)",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "event_name.type",
+   "fieldname": "type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Type",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-09-20 21:00:51.632061",
+ "modified_by": "Administrator",
+ "module": "Event Management",
+ "name": "Participants",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "route": "parti_name",
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

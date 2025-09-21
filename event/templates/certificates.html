@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+            <div class="logo">
+                An Organization
+            </div>
+
+            <div class="marquee">
+                Certificate of Participation
+            </div>
+
+            <div class="assignment">
+                This certificate is presented to
+            </div>
+
+            <div class="person">
+                {{ parti_name }}
+            </div>
+
+            <div class="reason">
+                studying {{year}} year in {{college_name}} for active participation in the {{event_name}} event <br/>
+                which was at {{date_time}}. 
+            </div>
+           
+            
+           
+        </div>
+</body>
+<style>
+    
+    body, html {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                color: black;
+                display: table;
+                font-family: Georgia, serif;
+                font-size: 24px;
+                text-align: center;
+            }
+            .container {
+                border: 20px solid #78B9B5;
+                width: 750px;
+                height: 563px;
+                display: table-cell;
+                vertical-align: middle;
+                margin-right: 30px;
+            }
+            .logo {
+                color: #0C6870;
+              font-weight: bold;
+            }
+
+            .marquee {
+                color: #0C6870;
+              font-weight: bold;
+                font-size: 40px;
+                margin: 20px;
+            }
+            .assignment {
+                margin: 20px;
+            }
+            .person {
+                border-bottom: 2px solid black;
+                font-size: 32px;
+                font-style: italic;
+                margin: 20px auto;
+                width: 400px;
+            }
+            .reason {
+                margin: 20px;
+            }
+            
+            
+
+            
+</style>
+</html>
