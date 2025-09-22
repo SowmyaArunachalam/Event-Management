@@ -4,7 +4,11 @@ app_publisher = "sowmya"
 app_description = "Manages event and participants details"
 app_email = "asowmya2004@gmail.com"
 app_license = "mit"
+# app_include_js = "/event/public/js/participants_list.js"
 
+after_migrate = [
+    "event.utils.notification.remainder"
+]
 # Apps
 # ------------------
 
@@ -47,7 +51,9 @@ app_license = "mit"
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
-
+doctype_list_js ={
+    "Participants": "public/js/participants_list.js"
+}
 # Svg Icons
 # ------------------
 # include app icons in desk

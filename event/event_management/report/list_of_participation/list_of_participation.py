@@ -54,3 +54,14 @@ def execute(filters=None):
 
     return columns, data
 
+
+# def filter_event():
+#     participant_event = frappe.db.get_list(
+#     "Participants",
+#     filters={"receiver_email": frappe.session.user},
+#     fields=["event_name"]
+# )
+
+#     for item in participant_event:
+        
+        

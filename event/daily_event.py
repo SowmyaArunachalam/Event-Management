@@ -39,3 +39,4 @@ def mail(name, year, college, event, date, email):
                 }]
             )
     
+

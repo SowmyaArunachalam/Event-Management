@@ -29,6 +29,7 @@ class Participants(Document):
 			count -= int(value["total_team_members"])
 
 		if count <= 0:
+			frappe.db.set_value('Event_List', self.event_name, status, "Full")
 			frappe.throw(f"Registrations for {self.event_name} event gets full.")
 		if count - self.total_team_members <0:
 			frappe.throw(f"Only {count} participants can register for the {self.event_name} event.")
@@ -59,6 +60,8 @@ class Participants(Document):
 				"event_name": self.event_name
 			})
 		)
+  
+
 
 	def unique_participant(self, date, email, name):
 		print(date, email, name)

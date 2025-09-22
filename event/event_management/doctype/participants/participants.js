@@ -12,14 +12,24 @@ frappe.ui.form.on("Participants", {
         });
     },
     refresh: function(frm) {
-        debugger
+        
         if (frm.is_new()) {
             user_name = frappe.session.user_fullname
             frm.set_value('parti_name', user_name);
             frm.set_value('receiver_email', frappe.session.user_email);
         }
         
+    },
+    refresh: function(frm) {
+       frm.add_custom_button(__('Available events'), function() {
+           frappe.msgprint("User input");
+       });
+   
+        
+        
     }
+    
+
 });
   
 
