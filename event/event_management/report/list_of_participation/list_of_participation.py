@@ -57,11 +57,18 @@ def execute(filters=None):
 
 # def filter_event():
 #     participant_event = frappe.db.get_list(
-#     "Participants",
-#     filters={"receiver_email": frappe.session.user},
-#     fields=["event_name"]
-# )
-
-#     for item in participant_event:
+#         "Participants",
+#         filters={"receiver_email": frappe.session.user},
+#         pluck="event_name"
+#     )
         
+#     event_list = frappe.db.get_list(
+#         "Events_List",
+#         filters={
+#             name1: ["not in", new_list], 
+#             datetime:[">", frappe.datetime.now_datetime()],
+#             status: ["!=", "Full"]
+#             },
+#         fields=["event_name"]
+# )
         

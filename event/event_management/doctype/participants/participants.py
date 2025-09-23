@@ -5,6 +5,7 @@ import frappe
 from frappe.model.document import Document
 
 class Participants(Document):
+   
 	def validate(self):
 		# count
 		if self.type=="Solo":
@@ -12,28 +13,35 @@ class Participants(Document):
 		else:
 			self.total_team_members = len(self.team_member_details)+1
 
-		all_values = frappe.db.get_list(
+		all_values = frappe.db.get_all(
 			"Participants",
 			filters={"event_name": self.event_name, "name": ["!=", self.name]},
 			fields=["total_team_members"]
 			)
 
-		event_list = frappe.db.get_value(
+		event_list, id_name = frappe.db.get_value(
 			"Events_List",
 			{"name": self.event_name},
-			"capacity_of_participants"
+			["capacity_of_participants", "name"]
 		)
 
 		count = event_list
 		for value in all_values:
 			count -= int(value["total_team_members"])
 
+		if count <= 0 or count - self.total_team_members <= 0:
+			current_status = frappe.db.get_value("Events_List", {"name": self.event_name}, "status") or ""
+			if current_status != "Full":
+				frappe.db.set_value("Events_List", self.event_name, "status", "Full")
+		
 		if count <= 0:
-			frappe.db.set_value('Event_List', self.event_name, status, "Full")
 			frappe.throw(f"Registrations for {self.event_name} event gets full.")
 		if count - self.total_team_members <0:
 			frappe.throw(f"Only {count} participants can register for the {self.event_name} event.")
 
+  
+  
+  
 		# validate phonenumber
 		self.validate_phonenumber(self.phone_number)
 			
@@ -44,6 +52,12 @@ class Participants(Document):
 				self.validate_phonenumber(item.phone_number)
 					
 				self.unique_participant(self.date_time.date(), item.email, self.name)
+
+	def on_trash(self):
+		event_status = frappe.db.get_value("Events_List", {"name": self.event_name}, "status") or ""
+		if event_status == "Full":
+			frappe.db.set_value("Events_List", self.event_name, "status", None)
+
 
 	
 	def on_submit(self):
@@ -79,3 +93,7 @@ class Participants(Document):
 	def validate_phonenumber(self, phone_number):
 		if not (phone_number.isdigit() and len(phone_number)==10):
 			frappe.throw("Phone Number must be digit or must equals 10 digit.")
+
+   
+	
+						

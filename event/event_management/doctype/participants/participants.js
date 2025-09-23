@@ -19,15 +19,10 @@ frappe.ui.form.on("Participants", {
             frm.set_value('receiver_email', frappe.session.user_email);
         }
         
-    },
-    refresh: function(frm) {
-       frm.add_custom_button(__('Available events'), function() {
-           frappe.msgprint("User input");
-       });
-   
-        
-        
     }
+        
+        
+    
     
 
 });
