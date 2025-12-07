@@ -6,9 +6,9 @@ app_email = "asowmya2004@gmail.com"
 app_license = "mit"
 # app_include_js = "/event/public/js/participants_list.js"
 
-after_migrate = [
-    "event.utils.notification.remainder"
-]
+# after_migrate = [
+#     "event.utils.notification.remainder"
+# ]
 # Apps
 # ------------------
 

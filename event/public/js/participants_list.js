@@ -6,7 +6,6 @@ frappe.listview_settings['Participants'] = {
 
         listview.page.add_inner_button(__('Check Available Events'), function() {
             
-
             frappe.xcall("event.api.filter_event",{})
                 .then(r =>{
                     console.log(r)

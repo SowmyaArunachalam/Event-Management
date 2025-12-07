@@ -3,7 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
-
+from frappe.utils import get_datetime
 class Participants(Document):
    
 	def validate(self):
@@ -46,7 +46,10 @@ class Participants(Document):
 		self.validate_phonenumber(self.phone_number)
 			
 		# unique participation
-		self.unique_participant(self.date_time.date(), self.receiver_email, self.name)
+		date_time_obj = get_datetime(self.date_time)
+		only_date = date_time_obj.date()
+		self.unique_participant(only_date, self.receiver_email, self.name)
+		# self.unique_participant(self.date_time.date(), self.receiver_email, self.name)
 		if self.type =="Group":
 			for item in self.team_member_details:
 				self.validate_phonenumber(item.phone_number)
